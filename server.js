@@ -27,11 +27,15 @@ app.get("/room", (req, res) => {
   });
 });
 
+let users = [];
+
 io.on("connection", (socket) => {
   socket.on("join-room", (roomId, username, id) => {
     console.log(roomId, username);
+    users.push(username);
+    users = [...new Set(users)];
     socket.join(roomId);
-    socket.to(roomId).broadcast.emit("user-connected", id);
+    socket.to(roomId).broadcast.emit("user-connected",users, id);
     socket.on("message", (message) => {
       io.to(roomId).emit("createMessage", {
         user: username,

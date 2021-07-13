@@ -3,6 +3,7 @@ const videoGrid = document.getElementById("video-grid");
 const myVideo = document.createElement("video");
 myVideo.muted = true;
 const peers = {};
+
 var peer = new Peer(undefined, {
   path: "/peerjs",
   host: "/",
@@ -19,7 +20,8 @@ navigator.mediaDevices
     myVideoStream = stream;
     addVideoStream(myVideo, stream);
 
-    socket.on("user-connected", (username) => {
+    socket.on("user-connected", (list,username) => {
+      console.log(list);
       setTimeout(function () {
         connecToNewUser(username, stream);
       }, 1000);
@@ -44,6 +46,7 @@ peer.on("open", (id) => {
 
 const connecToNewUser = (userId, stream) => {
   const call = peer.call(userId, stream);
+  
   const video = document.createElement("video");
   call.on("stream", (userVideoStream) => {
     addVideoStream(video, userVideoStream);
@@ -83,6 +86,7 @@ socket.on("createMessage", ({ user, newmessage }) => {
   );
   scrollToBottom();
 });
+
 
 const scrollToBottom = () => {
   let d = $(".main__chat_window");
