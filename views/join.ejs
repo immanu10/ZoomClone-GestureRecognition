@@ -5,14 +5,93 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
   </head>
   <body>
-    <form action="/room" method="get">
-      <label for="roomID">RoomID:</label>
-      <input type="text" name="roomId" id="roomId" required />
-      <label for="username">Name:</label>
-      <input type="text" name="username" id="username" required />
-      <button type="submit">JOIN</button>
-    </form>
+    <div class="joinpage">
+      <div class="title-container">
+        <div class="header-section">
+          <h1 class="title">GoMeet</h1>
+          <div class="time">
+            <span class="timeinhrs"></span>
+            <span class="day"></span>
+            <span class="month"></span>
+          </div>
+        </div>
+        <p class="hero-para">
+          <span class="herotxt"> Video Conferencing website</span> <br />
+          which has gesture recognition built into it to <br />
+          communicate with ease.
+        </p>
+      </div>
+      <div class="join-container">
+        <form action="/room" method="get" class="form-container">
+          <div class="input-container">
+            <input
+              type="text"
+              name="roomId"
+              id="roomId"
+              required
+              placeholder="Enter room name"
+            />
+            <input
+              type="text"
+              name="username"
+              id="username"
+              required
+              placeholder="Enter your name"
+            />
+          </div>
+          <button type="submit" class="joinbtn">
+            <i class="fas fa-plus-circle"></i><span class="jointext">Join</span>
+          </button>
+        </form>
+        <div>
+          <img src="heroimg.svg" alt="" class="heroimg" />
+          <p class="heroimgtext">"See everyone Together at one place"</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      var d = new Date(),
+        minutes =
+          d.getMinutes().toString().length == 1
+            ? "0" + d.getMinutes()
+            : d.getMinutes(),
+        hours =
+          d.getHours().toString().length == 1
+            ? "0" + d.getHours()
+            : d.getHours(),
+        hours = hours % 12;
+      hours = hours ? hours : 12;
+      (ampm = d.getHours() >= 12 ? " PM." : " AM."),
+        (months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ]);
+      days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      document.querySelector(".timeinhrs").innerHTML =
+        hours + ":" + minutes + ampm;
+      document.querySelector(".day").innerHTML = days[d.getDay()] + ",";
+      document.querySelector(".month").innerHTML =
+        months[d.getMonth()] + " " + d.getDate();
+    </script>
   </body>
 </html>

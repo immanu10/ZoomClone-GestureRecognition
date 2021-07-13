@@ -1,122 +1,202 @@
 body {
-    margin: 0;
-    padding: 0;
-    
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
 #video-grid {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 video {
-    width: 300px;
-    height: 400px;
-    /*object-fit: cover;
+  width: 300px;
+  height: 400px;
+  /*object-fit: cover;
     */
 }
 
 .main {
-    height: 100vh;
-    display: flex;
+  height: 100vh;
+  display: flex;
 }
 
 .main__left {
-    flex: 0.8;
-    display: flex;
-    flex-direction: column;
-    
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
 }
 
 .main__right {
-    flex: 0.2;
+  flex: 0.2;
 }
 
 .main__videos {
-    flex-grow: 1;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+  flex-grow: 1;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main__controls {
-     display: flex;
-     background-color: #1c1e20;
-     color: #d2d2d2;
-     padding: 5px;
-     justify-content: space-between;
+  display: flex;
+  background-color: #1c1e20;
+  color: #d2d2d2;
+  padding: 5px;
+  justify-content: space-between;
 }
 
 .main__controls__block {
-    display: flex;
-    
+  display: flex;
 }
 
 .main__controls__button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 10px;
-    min-width: 80px;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 10px;
+  min-width: 80px;
+  cursor: pointer;
 }
 
-.main__controls__button i{
-    font-size: 24px;
+.main__controls__button i {
+  font-size: 24px;
 }
 
-#pose-result{
-    font-size: 40px;
+#pose-result {
+  font-size: 40px;
 }
 
 .main__controls__button:hover {
-    background-color: #343434;
-    border-radius: 5px;
+  background-color: #343434;
+  border-radius: 5px;
 }
 
 .leave_meeting {
-    color: red;
+  color: red;
 }
 
 .main__right {
-    display: flex;
-    flex-direction: column;
-    background-color: #242324;
-    border-left: 1px solid #3d3d42;
+  display: flex;
+  flex-direction: column;
+  background-color: #242324;
+  border-left: 1px solid #3d3d42;
 }
 
 .main__header {
-    color: #f5f5f5;
-    text-align: center;
+  color: #f5f5f5;
+  text-align: center;
 }
 
 .main__chat_window {
-    flex-grow: 1;
-    overflow-y: scroll;
-    
+  flex-grow: 1;
+  overflow-y: scroll;
 }
 
 .main__message_container {
-    padding: 22px 12px;
-    display: flex;
+  padding: 22px 12px;
+  display: flex;
 }
 
 .main__message_container input {
-    flex-grow: 1;
-    background-color: transparent;
-    border: 1px solid;
-    border-radius: 2px;
-    color: #f5f5f5;
+  flex-grow: 1;
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 2px;
+  color: #f5f5f5;
 }
 
 .messages {
-    color: #f5f5f5;
-    list-style: none;
+  color: #f5f5f5;
+  list-style: none;
 }
 
-.unmute, .stop {
-    color: #cc3b33;
+.unmute,
+.stop {
+  color: #cc3b33;
+}
+
+.title {
+  color: #2c83fc;
+  letter-spacing: 3px;
+  margin: 0;
+}
+.header-section {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.time {
+  color: #646368;
+  margin-left: 680px;
+}
+.hero-para {
+  margin-left: 60px;
+  margin-top: 70px;
+  color: #5f6368;
+}
+
+.time > span {
+  font-size: 20px;
+}
+.herotxt {
+  font-size: 40px;
+  font-weight: 500;
+  color: black;
+}
+.form-container {
+  margin-left: 60px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin-top: 30px;
+}
+.input-container > input {
+  height: 40px;
+  margin-bottom: 18px;
+  border: 1px solid #9a9da0;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  padding-left: 8px;
+}
+.input-container > input:focus {
+  border: 2px solid #2c83fc;
+}
+.joinbtn {
+  width: 250px;
+  height: 40px;
+  background-color: #2c83fc;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.joinbtn:hover {
+  background-color: #1b66ca;
+}
+.jointext {
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.join-container {
+  display: flex;
+}
+.heroimg {
+  position: relative;
+  left: 140%;
+  bottom: 30%;
+}
+.heroimgtext {
+  position: relative;
+  left: 150%;
+  top: -30%;
+  color: #5f6368;
 }
