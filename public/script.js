@@ -39,7 +39,7 @@ socket.on("user-disconnected", (userId) => {
 });
 
 peer.on("open", (id) => {
-  socket.emit("join-room", ROOM_ID, USER_NAME);
+  socket.emit("join-room", ROOM_ID,USER_NAME,id);
 });
 
 const connecToNewUser = (userId, stream) => {
@@ -132,6 +132,11 @@ const setStopVideo = () => {
     `;
   document.querySelector(".main__video_button").innerHTML = html;
 };
+
+const leave = () => {
+  peer.destroy();
+  socket.emit("disconnect");
+}
 
 const setPlayVideo = () => {
   const html = `

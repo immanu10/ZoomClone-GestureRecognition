@@ -28,10 +28,10 @@ app.get("/room", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  socket.on("join-room", (roomId, username) => {
+  socket.on("join-room", (roomId, username,id) => {
     console.log(roomId, username);
     socket.join(roomId);
-    socket.to(roomId).broadcast.emit("user-connected", username);
+    socket.to(roomId).broadcast.emit("user-connected", id);
     socket.on("message", (message) => {
       io.to(roomId).emit("createMessage", {
         user: username,
@@ -40,7 +40,7 @@ io.on("connection", (socket) => {
     });
 
     socket.on("disconnect", () => {
-      socket.to(roomId).broadcast.emit("user-disconnected", username);
+      socket.to(roomId).broadcast.emit("user-disconnected", id);
     });
   });
 });
