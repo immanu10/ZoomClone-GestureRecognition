@@ -70,7 +70,7 @@
               <i class="fas fa-user-friends"></i>
               <span>Participants</span>
             </div>
-            <div class="main__controls__button">
+            <div class="main__controls__button" onclick="toggleChat()">
               <i class="fas fa-comment-alt"></i>
               <span>Chat</span>
             </div>
@@ -79,10 +79,11 @@
               <div id="pose-result"></div>
             </div>
           </div>
-
           <div class="main__controls__block">
             <div class="main__controls__button">
-              <a href="/" onclick="leave()"><span class="leave_meeting">Leave Meeting</span></a>
+              <a href="/" onclick="leave()"
+                ><span class="leave_meeting">Leave Meeting</span></a
+              >
             </div>
           </div>
         </div>
@@ -115,6 +116,11 @@
       function putGesture() {
         const res = document.querySelector("#pose-result");
         document.getElementById("chat_message").value = res.innerText;
+      }
+
+      function toggleChat() {
+        const chatWindow = document.querySelector(".main__right");
+        chatWindow.classList.toggle("chatopen");
       }
     </script>
     <script>

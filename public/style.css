@@ -20,6 +20,7 @@ video {
 .main {
   height: 100vh;
   display: flex;
+  background-color: black;
 }
 
 .main__left {
@@ -80,10 +81,7 @@ video {
 }
 
 .main__right {
-  display: flex;
-  flex-direction: column;
-  background-color: #242324;
-  border-left: 1px solid #3d3d42;
+  display: none;
 }
 
 .main__header {
@@ -199,4 +197,10 @@ video {
   left: 150%;
   top: -30%;
   color: #5f6368;
+}
+.chatopen {
+  display: flex;
+  flex-direction: column;
+  background-color: #242324;
+  border-left: 1px solid #3d3d42;
 }
