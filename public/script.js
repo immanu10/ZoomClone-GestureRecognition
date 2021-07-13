@@ -20,8 +20,13 @@ navigator.mediaDevices
     myVideoStream = stream;
     addVideoStream(myVideo, stream);
 
-    socket.on("user-connected", (list,username) => {
+    socket.on("user-connected", (list, username) => {
       console.log(list);
+      list.map((item) => {
+        $(".partici").append(`<li class="userinparti"><b>${item}</b></li>`);
+      });
+
+      scrollToBottom();
       setTimeout(function () {
         connecToNewUser(username, stream);
       }, 1000);
@@ -46,7 +51,7 @@ peer.on("open", (id) => {
 
 const connecToNewUser = (userId, stream) => {
   const call = peer.call(userId, stream);
-  
+
   const video = document.createElement("video");
   call.on("stream", (userVideoStream) => {
     addVideoStream(video, userVideoStream);
@@ -86,7 +91,6 @@ socket.on("createMessage", ({ user, newmessage }) => {
   );
   scrollToBottom();
 });
-
 
 const scrollToBottom = () => {
   let d = $(".main__chat_window");
