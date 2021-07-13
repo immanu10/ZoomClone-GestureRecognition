@@ -78,7 +78,9 @@ $("html").keydown((e) => {
 
 socket.on("createMessage", ({ user, newmessage }) => {
   console.log(user, newmessage);
-  $("ul").append(`<li class="message"><b>${user}</b><br/>${newmessage}</li>`);
+  $(".messages").append(
+    `<li class="message"><b>${user}</b><br/>${newmessage}</li>`
+  );
   scrollToBottom();
 });
 

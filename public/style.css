@@ -29,7 +29,10 @@ video {
   flex-direction: column;
 }
 
-.main__right {
+.main__rightChat {
+  flex: 0.2;
+}
+.main__rightParticipants {
   flex: 0.2;
 }
 
@@ -80,7 +83,10 @@ video {
   color: red;
 }
 
-.main__right {
+.main__rightChat {
+  display: none;
+}
+.main__rightParticipants {
   display: none;
 }
 
@@ -199,6 +205,12 @@ video {
   color: #5f6368;
 }
 .chatopen {
+  display: flex;
+  flex-direction: column;
+  background-color: #242324;
+  border-left: 1px solid #3d3d42;
+}
+.participantopen {
   display: flex;
   flex-direction: column;
   background-color: #242324;

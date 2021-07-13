@@ -66,7 +66,10 @@
               <i class="fas fa-shield-alt"></i>
               <span>Security</span>
             </div>
-            <div class="main__controls__button">
+            <div
+              class="main__controls__button showpartici"
+              onclick="toggleParticipants()"
+            >
               <i class="fas fa-user-friends"></i>
               <span>Participants</span>
             </div>
@@ -88,8 +91,15 @@
           </div>
         </div>
       </div>
-
-      <div class="main__right">
+      <div class="main__rightParticipants">
+        <div class="main__header">
+          <h6>Participants</h6>
+        </div>
+        <div class="main__chat_window">
+          <ul class="partici"></ul>
+        </div>
+      </div>
+      <div class="main__rightChat">
         <div class="main__header">
           <h6>Chat</h6>
         </div>
@@ -119,8 +129,24 @@
       }
 
       function toggleChat() {
-        const chatWindow = document.querySelector(".main__right");
+        const chatWindow = document.querySelector(".main__rightChat");
+        const particiWindow = document.querySelector(
+          ".main__rightParticipants"
+        );
+        if (particiWindow.classList.contains("participantopen")) {
+          particiWindow.classList.remove("participantopen");
+        }
         chatWindow.classList.toggle("chatopen");
+      }
+      function toggleParticipants() {
+        const particiWindow = document.querySelector(
+          ".main__rightParticipants"
+        );
+        const chatWindow = document.querySelector(".main__rightChat");
+        if (chatWindow.classList.contains("chatopen")) {
+          chatWindow.classList.remove("chatopen");
+        }
+        particiWindow.classList.toggle("participantopen");
       }
     </script>
     <script>
