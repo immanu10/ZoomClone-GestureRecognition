@@ -35,7 +35,7 @@ io.on("connection", (socket) => {
     users.push(username);
     users = [...new Set(users)];
     socket.join(roomId);
-    socket.to(roomId).broadcast.emit("user-connected",users, id);
+    socket.to(roomId).broadcast.emit("user-connected", users, id);
     socket.on("message", (message) => {
       io.to(roomId).emit("createMessage", {
         user: username,
@@ -49,4 +49,7 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(process.env.PORT || 3030);
+server.listen(process.env.PORT || 3030, () => {
+  console.log("Server started at port 3030");
+  console.log(`Visit http://localhost:${process.env.PORT || 3030}`);
+});
